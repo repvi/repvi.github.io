@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ===================================
-    // Contact Form Handling
+    // Contact Form Handling with Formspree
     // ===================================
     const contactForm = document.getElementById('contactForm');
     
@@ -173,14 +173,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Here you would typically send the form data to a server
-            // For now, we'll just show a success message
-            console.log('Form submitted:', { name, email, subject, message });
+            // Show sending notification
+            showNotification('Sending your message...', 'info');
             
-            showNotification('Thank you! Your message has been received. I\'ll get back to you soon.', 'success');
-            
-            // Reset form
-            contactForm.reset();
+            // Send form data to Formspree
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('Thank you! Your message has been sent. I\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            showNotification(data.errors.map(error => error.message).join(', '), 'error');
+                        } else {
+                            showNotification('Oops! There was a problem sending your message.', 'error');
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Oops! There was a problem sending your message. Please try again.', 'error');
+            });
         });
     }
     
@@ -383,12 +404,26 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.5s ease';
                 
-                img.onload = () => {
+                // Check if image is already loaded
+                if (img.complete && img.naturalHeight !== 0) {
+                    // Image already loaded successfully
                     img.style.opacity = '1';
-                };
+                } else {
+                    // Image not yet loaded
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.5s ease';
+                    
+                    img.onload = () => {
+                        img.style.opacity = '1';
+                    };
+                    
+                    // Handle image load errors (broken images)
+                    img.onerror = () => {
+                        img.style.opacity = '1';
+                        console.warn('Image failed to load:', img.src);
+                    };
+                }
                 
                 observer.unobserve(img);
             }
