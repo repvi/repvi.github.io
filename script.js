@@ -433,6 +433,53 @@ document.addEventListener('DOMContentLoaded', function() {
     images.forEach(img => imageObserver.observe(img));
     
     // ===================================
+    // Request Details - Prefill Contact Form
+    // ===================================
+    document.querySelectorAll('.request-details').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const subject = this.dataset.subject || 'Project Inquiry';
+            const contactForm = document.getElementById('contactForm');
+            const header = document.querySelector('.header');
+            const target = document.getElementById('contact');
+            
+            // Smooth scroll to contact section
+            if (target) {
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = target.offsetTop - headerHeight;
+                window.scrollTo({ 
+                    top: targetPosition, 
+                    behavior: 'smooth' 
+                });
+            }
+            
+            // Prefill subject field after scrolling
+            setTimeout(() => {
+                if (contactForm) {
+                    const subjectInput = contactForm.querySelector('input[name="subject"]');
+                    if (subjectInput) {
+                        subjectInput.value = subject;
+                        // Add a subtle highlight effect
+                        subjectInput.style.transition = 'all 0.3s ease';
+                        subjectInput.style.borderColor = 'var(--primary-color)';
+                        subjectInput.style.boxShadow = '0 0 0 2px rgba(0, 212, 255, 0.2)';
+                        
+                        // Focus on the name field to draw attention
+                        const nameInput = contactForm.querySelector('input[name="name"]');
+                        if (nameInput) nameInput.focus();
+                        
+                        // Remove highlight after 2 seconds
+                        setTimeout(() => {
+                            subjectInput.style.borderColor = '';
+                            subjectInput.style.boxShadow = '';
+                        }, 2000);
+                    }
+                }
+            }, 600);
+        });
+    });
+    
+    // ===================================
     // Console Message (Easter Egg)
     // ===================================
     console.log('%c👋 Hello, fellow developer!', 'color: #00d4ff; font-size: 20px; font-weight: bold;');

@@ -213,6 +213,34 @@
     .sub-heading {
         font-size: 1rem;
     }
+    
+    /* Employer Section - Mobile */
+    .employer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+    
+    .employer-info .section-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+    }
+    
+    .employer-card {
+        padding: 1.5rem;
+    }
+    
+    .quick-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
 
     /* Header */
     .logo-heading {

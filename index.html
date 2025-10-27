@@ -6,16 +6,39 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <meta name="description" content="Portfolio of repvi - Embedded Systems Engineer specializing in ESP32 firmware development, IoT solutions, and hardware integration.">
-    <meta name="keywords" content="Embedded Systems, ESP32, Firmware Development, IoT, Hardware Engineering, repvi">
-    <meta name="author" content="repvi">
-    <title>Alejandro Ramirez - Embedded Systems Engineer | ESP32 Specialist</title> 
+    <meta name="description" content="Alejandro Ramirez - Firmware Developer specializing in ESP32 development, FreeRTOS, and embedded systems. View my portfolio of IoT projects and firmware solutions.">
+    <meta name="keywords" content="Embedded Systems, ESP32, Firmware Development, IoT, Hardware Engineering, FreeRTOS, UART, MQTT, Alejandro Ramirez, repvi">
+    <meta name="author" content="Alejandro Ramirez">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://repvi.github.io/">
+    <meta property="og:title" content="Alejandro Ramirez - Firmware Developer | ESP32 Specialist">
+    <meta property="og:description" content="Building efficient, production-ready firmware for embedded systems with expertise in ESP-IDF, FreeRTOS, and low-level driver development.">
+    <meta property="og:image" content="https://repvi.github.io/assets/images/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://repvi.github.io/">
+    <meta name="twitter:title" content="Alejandro Ramirez - Firmware Developer | ESP32 Specialist">
+    <meta name="twitter:description" content="Building efficient, production-ready firmware for embedded systems with expertise in ESP-IDF, FreeRTOS, and low-level driver development.">
+    <meta name="twitter:image" content="https://repvi.github.io/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/site.webmanifest">
+    <meta name="theme-color" content="#0b1724">
+
+    <title>Alejandro Ramirez - Firmware Developer | ESP32 Specialist</title> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css"> 
 </head> 
 
-<body> 
+<body>  
     <!-- Navbar header section -->
     <header class="header"> 
         <nav class="navbar"> 
@@ -59,6 +82,11 @@
                         <a class="links" href="#contact"> 
                             Contact 
                         </a> 
+                    </li>
+                    <li class="menu-list-items"> 
+                        <a class="links resume-link" href="./assets/resume/Alejandro_Ramirez_Resume.pdf" download> 
+                            <i class="fas fa-file-pdf"></i> Resume 
+                        </a> 
                     </li> 
                 </ul> 
             </div> 
@@ -80,6 +108,9 @@
             </div> 
             <div class="intro-buttons"> 
                 <a href="#projects" class="btn common-btn">View Projects</a> 
+                <a href="./assets/resume/Alejandro_Ramirez_Resume.pdf" download class="btn ghost-btn">
+                    <i class="fas fa-file-pdf"></i> Download Resume
+                </a>
                 <a href="https://github.com/repvi" target="_blank" class="btn ghost-btn">
                     <i class="fab fa-github"></i> GitHub
                 </a> 
@@ -238,7 +269,11 @@
                     </div>
                 </div>
                 <div class="project-info">
-                    <h3 class="project-title">Raminox - Low Power MicroComputer-like ESP32</h3>
+                    <h3 class="project-title">
+                        <i class="fas fa-lock" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        Raminox - Low Power MicroComputer-like ESP32
+                        <span class="project-badge">Proprietary</span>
+                    </h3>
                     <div class="project-tags">
                         <span class="tag">ESP32</span>
                         <span class="tag">FreeRTOS</span>
@@ -268,12 +303,15 @@
                         <li><strong>Architecture:</strong> Modular app/game loader with safe concurrency patterns</li>
                         <li><strong>Optimization:</strong> Efficient memory management and low-power operation</li>
                     </ul>
+                    <div class="project-note">
+                        <p><i class="fas fa-info-circle"></i> <strong>Note for Employers:</strong> While the source code remains private to protect my intellectual property, I'm happy to discuss the technical implementation, architecture decisions, and problem-solving approaches in detail during interviews. I can also provide demonstrations and walk through specific features.</p>
+                    </div>
                     <div class="project-links">
-                        <a href="#contact" class="btn-small">
-                            <i class="fas fa-envelope"></i> Request Details
+                        <a href="#contact" class="btn-small request-details" data-subject="Raminox Project - Request Technical Discussion">
+                            <i class="fas fa-comments"></i> Discuss Project
                         </a>
-                        <a href="#" class="btn-small" onclick="alert('This is a private commercial project. Please contact me for a detailed portfolio presentation or technical interview.'); return false;">
-                            <i class="fas fa-info-circle"></i> More Info
+                        <a href="#contact" class="btn-small request-details" data-subject="Raminox - Request Demo or Walkthrough">
+                            <i class="fas fa-video"></i> Request Demo
                         </a>
                     </div>
                 </div>
@@ -327,8 +365,8 @@
                         <a href="https://github.com/repvi/MicroUSC" target="_blank" class="btn-small">
                             <i class="fab fa-github"></i> Code
                         </a>
-                        <a href="#" class="btn-small">
-                            <i class="fas fa-info-circle"></i> Details
+                        <a href="#contact" class="btn-small request-details" data-subject="MicroUSC UART Protocol - Technical Discussion Request">
+                            <i class="fas fa-info-circle"></i> Discuss Project
                         </a>
                     </div>
                 </div>
@@ -385,8 +423,8 @@
                         <a href="https://github.com/repvi/RetePulse-Connect" target="_blank" class="btn-small">
                             <i class="fab fa-github"></i> Firmware Code
                         </a>
-                        <a href="#" class="btn-small">
-                            <i class="fas fa-info-circle"></i> Details
+                        <a href="#contact" class="btn-small request-details" data-subject="RetePulse IoT Platform - Collaboration Inquiry">
+                            <i class="fas fa-info-circle"></i> Collaborate
                         </a>
                     </div>
                 </div>
@@ -465,6 +503,102 @@
         </div>
     </section> 
 
+    <!-- Quick Info Section for Employers -->
+    <section class="employer-info" id="employer-info">
+        <div class="container">
+            <h2 class="section-title text-center">
+                <i class="fas fa-briefcase"></i> For Employers & Recruiters
+            </h2>
+            <div class="employer-grid">
+                <div class="employer-card">
+                    <div class="employer-icon">
+                        <i class="fas fa-file-download"></i>
+                    </div>
+                    <h3>Resume</h3>
+                    <p>Download my complete resume with project details, skills, and education</p>
+                    <a href="./assets/resume/Alejandro_Ramirez_Resume.pdf" download class="employer-btn">
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                    </a>
+                </div>
+                
+                <div class="employer-card">
+                    <div class="employer-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub Portfolio</h3>
+                    <p>View my complete source code, documentation, and commit history</p>
+                    <a href="https://github.com/repvi" target="_blank" class="employer-btn">
+                        <i class="fab fa-github"></i> View Repositories
+                    </a>
+                </div>
+                
+                <div class="employer-card">
+                    <div class="employer-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn Profile</h3>
+                    <p>Connect with me professionally and view recommendations</p>
+                    <a href="https://www.linkedin.com/in/alejandro-ramirez-893247310" target="_blank" class="employer-btn">
+                        <i class="fab fa-linkedin"></i> Connect
+                    </a>
+                </div>
+                
+                <div class="employer-card">
+                    <div class="employer-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Code Samples</h3>
+                    <p>Explore my public repositories showcasing firmware development skills</p>
+                    <a href="https://github.com/repvi?tab=repositories" target="_blank" class="employer-btn">
+                        <i class="fas fa-code-branch"></i> Browse Code
+                    </a>
+                </div>
+                
+                <div class="employer-card">
+                    <div class="employer-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Private Projects</h3>
+                    <p>Discuss technical details of proprietary work during interviews</p>
+                    <a href="#contact" class="employer-btn request-details" data-subject="Private Project Discussion Request - Technical Interview">
+                        <i class="fas fa-envelope"></i> Request Interview
+                    </a>
+                </div>
+                
+                <div class="employer-card">
+                    <div class="employer-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Schedule Interview</h3>
+                    <p>Available for technical interviews and project discussions</p>
+                    <a href="#contact" class="employer-btn request-details" data-subject="Interview Request - Firmware Development Position">
+                        <i class="fas fa-comments"></i> Get in Touch
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Major Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">ESP32</div>
+                    <div class="stat-label">Primary Platform</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">C/C++</div>
+                    <div class="stat-label">Core Languages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Open</div>
+                    <div class="stat-label">To Internships</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact me section -->
     <section class="contact" id="contact"> 
         <div class="contact-heading"> 
@@ -526,8 +660,11 @@
     <footer class="footer"> 
         <div class="footer-content text-center"> 
             <div class="footer-logo">
-                <h2><i class="fas fa-microchip"></i> repvi</h2>
-                <p>Embedded Systems Engineer | ESP32 Specialist</p>
+                <h2><i class="fas fa-microchip"></i> Alejandro Ramirez</h2>
+                <p>Firmware Developer | ESP32 Specialist</p>
+                <a href="./assets/resume/Alejandro_Ramirez_Resume.pdf" download class="resume-download-btn">
+                    <i class="fas fa-file-pdf"></i> Download Resume
+                </a>
             </div>
             <div class="social-links"> 
                 <div class="footer-menu"> 
@@ -570,8 +707,11 @@
             </div>
             <div class="footer-bottom">
                 <p>
-                    &copy; 2025 repvi. All rights reserved. | 
+                    &copy; 2025 Alejandro Ramirez. All rights reserved. | 
                     Built with <i class="fas fa-heart"></i> for embedded systems
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                    Open to firmware development internships and collaboration opportunities
                 </p>
             </div>
         </div> 
