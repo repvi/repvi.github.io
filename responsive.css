@@ -29,6 +29,16 @@
     .contact-content {
         gap: 2rem;
     }
+    
+    /* Employer Section - Tablet */
+    .employer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .employer-info .section-title {
+        font-size: 2rem;
+    }
 }
 
 /* Tablet Portrait and Below (max-width: 768px) */

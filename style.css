@@ -665,11 +665,15 @@ body {
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
     border-top: 2px solid rgba(0, 212, 255, 0.2);
     border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .employer-info .container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .employer-info .section-title {
@@ -680,6 +684,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    text-align: center;
 }
 
 .employer-info .section-title i {
@@ -691,6 +696,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 4rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .employer-card {
@@ -701,6 +708,11 @@ body {
     transition: all 0.3s ease;
     border: 2px solid transparent;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .employer-card:hover {
@@ -720,12 +732,14 @@ body {
     margin: 0 auto 1.5rem;
     font-size: 1.8rem;
     color: var(--dark-bg);
+    flex-shrink: 0;
 }
 
 .employer-card h3 {
     font-size: 1.4rem;
     color: var(--text-primary);
     margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 .employer-card p {
@@ -733,6 +747,7 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 0.95rem;
+    flex-grow: 1;
 }
 
 .employer-btn {
@@ -766,10 +781,15 @@ body {
     padding: 2rem;
     border-radius: 12px;
     border: 2px solid rgba(0, 212, 255, 0.2);
+    flex-wrap: wrap;
+    gap: 1rem;
+    box-sizing: border-box;
 }
 
 .stat-item {
     text-align: center;
+    min-width: 100px;
+    flex: 1;
 }
 
 .stat-number {
@@ -777,11 +797,13 @@ body {
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    display: block;
 }
 
 .stat-label {
     font-size: 1rem;
     color: var(--text-secondary);
+    display: block;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
