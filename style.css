@@ -596,6 +596,75 @@ body {
     color: var(--primary-color);
 }
 
+/* Highlight metrics within project features */
+.highlight-metric {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 153, 204, 0.15));
+    color: var(--primary-color);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.95em;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.highlight-metric:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(0, 153, 204, 0.25));
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Performance Metrics Summary Box */
+.metrics-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 153, 204, 0.05));
+    border-radius: 8px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.metric-box {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    background: var(--dark-bg);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.metric-box:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+}
+
+.metric-icon {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.metric-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .project-badge {
     display: inline-block;
     background: rgba(0, 212, 255, 0.15);
@@ -1063,6 +1132,24 @@ textarea.form-controls {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
     }
 }
 
