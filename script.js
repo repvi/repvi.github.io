@@ -480,6 +480,121 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ===================================
+    // Project Detail Overlay
+    // ===================================
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectImages = document.querySelectorAll('.project-image[data-project]');
+    const projectInfos = document.querySelectorAll('.project-info[data-project]');
+    const overlay = document.getElementById('projectDetailOverlay');
+    const overlayContent = document.getElementById('overlayProjectContent');
+    const overlayClose = document.getElementById('overlayClose');
+    
+    // Function to open overlay with project details
+    function openProjectDetail(projectNumber) {
+        const projectCard = document.querySelector(`.project-card[data-project="${projectNumber}"]`);
+        if (!projectCard) return;
+        
+        // Clone the entire project info content
+        const projectInfo = projectCard.querySelector('.project-info');
+        const projectImage = projectCard.querySelector('.project-image img');
+        const clonedContent = projectInfo.cloneNode(true);
+        
+        // Show hidden details in the overlay
+        const hiddenDetails = clonedContent.querySelectorAll('.project-details-hidden');
+        hiddenDetails.forEach(detail => {
+            detail.style.display = 'block';
+        });
+        
+        // Create overlay content structure
+        overlayContent.innerHTML = '';
+        
+        // Add project image if exists
+        if (projectImage) {
+            const imgContainer = document.createElement('div');
+            imgContainer.style.cssText = 'text-align: center; margin-bottom: 2rem; background: var(--light-bg); padding: 2rem; border-radius: 10px;';
+            const img = document.createElement('img');
+            img.src = projectImage.src;
+            img.alt = projectImage.alt;
+            img.style.cssText = 'max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px;';
+            imgContainer.appendChild(img);
+            overlayContent.appendChild(imgContainer);
+        }
+        
+        overlayContent.appendChild(clonedContent);
+        
+        // Show overlay with animation
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Function to close overlay
+    function closeProjectDetail() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Add click handlers to project cards
+    projectCards.forEach(card => {
+        const projectNumber = card.getAttribute('data-project');
+        if (projectNumber) {
+            card.addEventListener('click', (e) => {
+                // Prevent opening if clicking on a link
+                if (e.target.tagName === 'A' || e.target.closest('a')) {
+                    return;
+                }
+                openProjectDetail(projectNumber);
+            });
+        }
+    });
+    
+    // Add click handlers to images specifically
+    projectImages.forEach(image => {
+        const projectNumber = image.getAttribute('data-project');
+        if (projectNumber) {
+            image.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openProjectDetail(projectNumber);
+            });
+        }
+    });
+    
+    // Add click handlers to project info sections
+    projectInfos.forEach(info => {
+        const projectNumber = info.getAttribute('data-project');
+        if (projectNumber) {
+            info.addEventListener('click', (e) => {
+                // Prevent opening if clicking on a link or button
+                if (e.target.tagName === 'A' || e.target.closest('a') || 
+                    e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                    return;
+                }
+                openProjectDetail(projectNumber);
+            });
+        }
+    });
+    
+    // Close button handler
+    if (overlayClose) {
+        overlayClose.addEventListener('click', closeProjectDetail);
+    }
+    
+    // Close on overlay background click
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeProjectDetail();
+            }
+        });
+    }
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            closeProjectDetail();
+        }
+    });
+    
+    // ===================================
     // Console Message (Easter Egg)
     // ===================================
     console.log('%c👋 Hello, fellow developer!', 'color: #00d4ff; font-size: 20px; font-weight: bold;');

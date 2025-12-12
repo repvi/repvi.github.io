@@ -1175,6 +1175,133 @@ textarea.form-controls {
 }
 
 /* ===================================
+   Project Detail Overlay (Slides from Top)
+   =================================== */
+.project-detail-overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.project-detail-overlay.active {
+    top: 0;
+}
+
+.overlay-content {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    background: var(--card-bg);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.project-detail-overlay.active .overlay-content {
+    top: 0;
+}
+
+.overlay-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    z-index: 10001;
+}
+
+.overlay-close:hover {
+    background: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.overlay-scroll {
+    padding: 3rem;
+}
+
+#overlayProjectContent {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Hide detailed content by default on cards */
+.project-details-hidden {
+    display: none;
+}
+
+/* Enhanced hover effects for project cards */
+.project-card {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+    border-color: var(--primary-color);
+}
+
+.project-card::after {
+    content: '👆 Press to view details';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+    bottom: -50px;
+}
+
+.project-image,
+.project-info {
+    cursor: pointer;
+}
+
+/* Adjust project overlay for better visibility */
+.project-overlay {
+    background: rgba(0, 212, 255, 0.95);
+}
+
+.project-overlay .project-link {
+    color: var(--dark-bg);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* ===================================
    Utility Classes
    =================================== */
 .container {
