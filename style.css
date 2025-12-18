@@ -444,15 +444,100 @@ body {
 .projects {
     padding: var(--section-padding);
     background: var(--darker-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Image Containers */
+.projects-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    z-index: 0;
+    pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.projects-bg-transition {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: 0;
+    pointer-events: none;
+    transform: translateY(-25%) translateZ(0);
+    will-change: transform;
+}
+
+.projects-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    opacity: 0.15;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Background Image 1 - Top Section */
+.projects-bg-1 {
+    /* Add your first background image here */
+    background-image: url('./assets/images/backgrounds/projects-bg-1.jpg');
+    /* Alternative: circuit board pattern, technology abstract, etc. */
+}
+
+/* Background Image 2 - Middle Transition */
+.projects-bg-2 {
+    /* Add your second background image here */
+    background-image: url('./assets/images/backgrounds/projects-bg-2.jpg');
+    opacity: 0.18;
+    /* Alternative: mesh network visualization, IoT devices, etc. */
+}
+
+.projects-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(5, 8, 20, 0.3) 30%,
+        rgba(5, 8, 20, 0.6) 60%, 
+        var(--darker-bg) 100%);
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+/* Blend overlay for transition area */
+.projects-bg-transition .projects-bg-overlay {
+    background: linear-gradient(180deg,
+        var(--darker-bg) 0%,
+        rgba(5, 8, 20, 0.5) 20%,
+        rgba(5, 8, 20, 0.5) 80%,
+        var(--darker-bg) 100%);
 }
 
 .projects-heading {
     margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .projects-content {
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .project-card {
@@ -464,11 +549,13 @@ body {
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) translateZ(0);
     box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
     border-color: var(--primary-color);
 }
@@ -1252,12 +1339,14 @@ textarea.form-controls {
 /* Enhanced hover effects for project cards */
 .project-card {
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-10px) scale(1.02) translateZ(0);
     box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
     border-color: var(--primary-color);
 }
@@ -1267,7 +1356,7 @@ textarea.form-controls {
     position: absolute;
     bottom: -40px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
     background: var(--primary-color);
     color: var(--dark-bg);
     padding: 0.5rem 1.5rem;
@@ -1276,7 +1365,7 @@ textarea.form-controls {
     font-weight: 600;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
     white-space: nowrap;
 }
 
