@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RTIX - Custom Real-Time Operating System for ARM Cortex-M processors by Alejandro Ramirez">
+    <title>RTIX - Custom RTOS | Alejandro Ramirez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../responsive.css">
+    <style>
+        .project-header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .section-block {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            margin-bottom: 2.5rem;
+        }
+        .section-block h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--primary-color);
+            border-radius: 4px;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient-1);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .metric-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        .metric-item .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .metric-item .label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-header">
+        <h1 class="my-heading">
+            <i class="fas fa-microchip"></i> RTIX - Custom RTOS for ARM Architecture
+        </h1>
+        <span class="project-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">Proprietary</span>
+        <p class="lead-para" style="max-width: 800px; margin: 1.5rem auto 0;">
+            Custom real-time operating system built from scratch for ARM Cortex-M processors. Features preemptive multitasking, priority-based scheduling, and efficient context switching.
+        </p>
+        <p style="color: var(--primary-color); margin-top: 1rem; font-weight: 600;">
+            Expected Public Release: March 2026
+        </p>
+    </div>
+
+    <div class="project-content">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+
+        <div class="section-block">
+            <h2><i class="fas fa-bullseye"></i> Project Overview</h2>
+            <p class="lead-para">
+                <strong>Built from the ground up!</strong> A fully functional RTOS kernel designed specifically for ARM architecture, demonstrating deep understanding of low-level systems programming and real-time constraints. Currently in private development with public release planned for March 2026.
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-lightbulb"></i> Why I Built This</h2>
+            <p class="lead-para">
+                Building an RTOS from scratch is the ultimate test of embedded systems knowledge. I wanted to deeply understand how operating systems work at the <strong>bare-metal level</strong>—from context switching to interrupt handling—rather than just using existing RTOS frameworks.
+            </p>
+            <p class="lead-para">
+                This project pushes the boundaries of what's possible on ARM Cortex-M microcontrollers, implementing features typically found in larger operating systems while maintaining the <strong>real-time guarantees</strong> critical for embedded applications.
+            </p>
+            <p class="lead-para">
+                <strong>The challenge was brutal from day one.</strong> Bare-metal ARM development means there's nothing beneath you—no libraries, no frameworks, no safety net. Just you, the processor, and a 1,000+ page ARM architecture manual. I started by hand-coding the boot sequence in assembly, setting up the stack pointer, initializing the vector table, and jumping into C. Sounds simple, but one wrong instruction and the chip just... sits there. Silent. No error messages. No debugger output. Just dead silicon.
+            </p>
+            <p class="lead-para">
+                Context switching was the real beast. I spent days poring over ARM documentation, understanding how to save and restore register states, manipulate the Program Status Register, and handle different execution modes. Every instruction matters when you're aiming for sub-microsecond switches. I wrote, tested, and rewrote the assembly code dozens of times, using a logic analyzer to measure actual timing. When I finally got preemptive multitasking working—watching multiple tasks seamlessly share the CPU with deterministic timing—it felt like magic. But it wasn't magic. It was understanding the architecture at a level most developers never need to reach.
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-exclamation-triangle"></i> Technical Challenges Solved</h2>
+            <p class="lead-para">
+                The <strong>bare-metal environment</strong> presents unique challenges. Every single operation must be carefully crafted:
+            </p>
+            <ul class="feature-list">
+                <li><strong>Assembly-Level Programming:</strong> Hand-coded ARM assembly for context switching, interrupt vectors, and stack management—no libraries, no shortcuts</li>
+                <li><strong>ARM Architecture Mastery:</strong> Manually worked with ARM Cortex-M registers, exception handling, and memory protection units using official ARM documentation</li>
+                <li><strong>Deterministic Timing:</strong> Achieved sub-microsecond context switches through careful instruction-level optimization and understanding of CPU pipeline behavior</li>
+                <li><strong>Memory Management:</strong> Created custom allocator with predictable timing—no dynamic memory fragmentation in real-time systems</li>
+                <li><strong>Priority Inversion:</strong> Implemented priority inheritance protocol to prevent high-priority tasks from being blocked by low-priority ones</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-chart-line"></i> Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="value">&lt;1μs</div>
+                    <div class="label">Context Switch</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">Preemptive</div>
+                    <div class="label">Scheduler</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">&lt;8KB</div>
+                    <div class="label">Kernel Size</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">ARM</div>
+                    <div class="label">Architecture</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-star"></i> Core Features</h2>
+            <ul class="feature-list">
+                <li>
+                    <strong>Preemptive Multitasking:</strong> Priority-based scheduler with <span class="highlight-metric">sub-microsecond context switching</span> for deterministic real-time performance
+                </li>
+                <li>
+                    <strong>ARM Native:</strong> Hand-optimized assembly routines leveraging <span class="highlight-metric">ARM Cortex-M architecture</span> features for maximum efficiency
+                </li>
+                <li>
+                    <strong>Lightweight Kernel:</strong> Minimal footprint <span class="highlight-metric">&lt;8KB</span> allowing use in resource-constrained embedded systems
+                </li>
+                <li>
+                    <strong>Task Management:</strong> Dynamic task creation, deletion, and priority management with <span class="highlight-metric">efficient scheduler algorithms</span>
+                </li>
+                <li>
+                    <strong>Synchronization Primitives:</strong> Semaphores, mutexes, and event flags for <span class="highlight-metric">thread-safe communication</span>
+                </li>
+                <li>
+                    <strong>Interrupt Handling:</strong> Fast ISR processing with <span class="highlight-metric">minimal jitter</span> and deterministic response times
+                </li>
+                <li>
+                    <strong>Memory Management:</strong> Custom allocator designed for <span class="highlight-metric">real-time constraints</span> with predictable allocation times
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-tools"></i> Technologies Used</h2>
+            <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <span class="tag">RTOS</span>
+                <span class="tag">ARM Cortex-M</span>
+                <span class="tag">C/Assembly</span>
+                <span class="tag">Preemptive Kernel</span>
+                <span class="tag">Low Latency</span>
+                <span class="tag">Embedded Systems</span>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-envelope"></i> Get Involved</h2>
+            <p class="lead-para">
+                RTIX is currently in private development. For early access, technical discussions, or collaboration opportunities, please get in touch.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <a href="../index.html#contact" class="btn common-btn">
+                    <i class="fas fa-lock"></i> Request Access
+                </a>
+                <a href="../index.html#contact" class="btn ghost-btn">
+                    <i class="fas fa-comments"></i> Technical Discussion
+                </a>
+            </div>
+        </div>
+
+        <a href="../index.html#projects" class="back-button" style="margin-top: 2rem;">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

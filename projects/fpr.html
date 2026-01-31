@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FPR - Fast Peer Router: Enterprise mesh networking for ESP32 by Alejandro Ramirez">
+    <title>FPR - Mesh Network | Alejandro Ramirez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../responsive.css">
+    <style>
+        .project-header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .section-block {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            margin-bottom: 2.5rem;
+        }
+        .section-block h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--primary-color);
+            border-radius: 4px;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient-1);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .metric-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        .metric-item .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .metric-item .label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-header">
+        <h1 class="my-heading">
+            <i class="fas fa-network-wired"></i> FPR - Fast Peer Router Mesh Network
+        </h1>
+        <p class="lead-para" style="max-width: 800px; margin: 1.5rem auto 0;">
+            Enterprise mesh networking for ESP32 (prototype under development). Ultra-low latency, zero infrastructure required.
+        </p>
+        <p style="color: var(--primary-color); margin-top: 1rem; font-weight: 600;">
+            150+ clones/week - Rapidly growing adoption
+        </p>
+    </div>
+
+    <div class="project-content">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+
+        <div class="section-block">
+            <h2><i class="fas fa-rocket"></i> Project Overview</h2>
+            <p class="lead-para">
+                <strong>🚀 Revolutionize your IoT deployment!</strong> Enterprise-grade mesh networking library enabling WiFi-like connectivity without infrastructure. <strong>Currently in active development</strong> with 150+ developers already testing and building with FPR!
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-lightbulb"></i> Why I Built This</h2>
+            <p class="lead-para">
+                I wanted to leverage <strong>open-source ESP-NOW</strong> to create a mesh networking solution that integrates seamlessly with existing systems. The goal was simple: make device-to-device communication as easy as possible while maintaining <strong>enterprise-level security</strong>.
+            </p>
+            <p class="lead-para">
+                Most mesh solutions are either too complex to integrate or lack proper security. FPR bridges this gap by providing <strong>encryption and authentication</strong> on top of ESP-NOW's efficient protocol, making it safe for commercial deployments while remaining accessible to hobbyists.
+            </p>
+            <p class="lead-para">
+                <strong>The journey started with a problem:</strong> I was working on multiple IoT projects that needed devices to talk to each other without relying on WiFi infrastructure. ESP-NOW was perfect—fast, efficient, low-power—but it lacked the security features needed for real deployments. I could have used a proprietary solution, but that felt wrong. The community deserves open tools that are both powerful and secure.
+            </p>
+            <p class="lead-para">
+                So I dove deep into ESP-NOW's internals, studying how devices discover each other, how messages are routed, and where the security gaps were. The breakthrough came when I realized I could layer a secure handshake protocol on top without sacrificing performance. It took weeks of experimentation—balancing encryption overhead against latency requirements, designing packet formats that wouldn't fragment, implementing peer management that scales gracefully. But seeing 150+ developers clone the repository every week? That validation makes every late night worth it.
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-exclamation-triangle"></i> Technical Challenges Solved</h2>
+            <p class="lead-para">
+                The biggest challenge was implementing <strong>enterprise-grade security</strong> without sacrificing the simplicity and performance that makes ESP-NOW attractive:
+            </p>
+            <ul class="feature-list">
+                <li><strong>Encryption Layer:</strong> Designed secure handshake protocol on top of ESP-NOW's MAC layer while maintaining sub-100ms latency</li>
+                <li><strong>Graceful Degradation:</strong> Built comprehensive failure handling so network remains operational even when nodes disconnect or packets are lost</li>
+                <li><strong>Backward Compatibility:</strong> Ensured FPR works with existing ESP-NOW systems through careful protocol design</li>
+                <li><strong>Multi-Hop Routing:</strong> Implemented intelligent message routing across multiple devices without flooding the network</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-chart-line"></i> Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="value">20+ Devices</div>
+                    <div class="label">Mesh Scale</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">&lt;100ms</div>
+                    <div class="label">Latency</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">Enterprise</div>
+                    <div class="label">Security</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">150+/week</div>
+                    <div class="label">Git Clones</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-star"></i> Key Benefits</h2>
+            <ul class="feature-list">
+                <li>
+                    <strong>🏆 Most Popular:</strong> Over <span class="highlight-metric">150+ repositories cloned</span> in the past week alone—proven real-world demand and rapid adoption
+                </li>
+                <li>
+                    <strong>Zero Infrastructure:</strong> No routers, access points, or internet required—<span class="highlight-metric">devices connect automatically</span> and form intelligent mesh networks
+                </li>
+                <li>
+                    <strong>Production Ready:</strong> Comprehensive test suite with <span class="highlight-metric">automated validation</span>, professional API, ready for commercial deployment
+                </li>
+                <li>
+                    <strong>Enterprise Security:</strong> Built-in secure handshake protocol with <span class="highlight-metric">mutual authentication</span>, peer blocking, and private network controls
+                </li>
+                <li>
+                    <strong>Multi-Hop Mesh:</strong> Messages route through <span class="highlight-metric">multiple devices</span> extending range to 200m+ line-of-sight
+                </li>
+                <li>
+                    <strong>Ultra-Low Latency:</strong> Achieve <span class="highlight-metric">&lt;100ms direct</span> and &lt;200ms single-hop for real-time applications
+                </li>
+                <li>
+                    <strong>Scalable:</strong> Support <span class="highlight-metric">20+ devices per network</span> with efficient peer management and automatic reconnection
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-tools"></i> Technologies Used</h2>
+            <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <span class="tag">ESP32</span>
+                <span class="tag">Mesh Network</span>
+                <span class="tag">ESP-NOW</span>
+                <span class="tag">Zero Infrastructure</span>
+                <span class="tag">Multi-Hop</span>
+                <span class="tag">Secure</span>
+                <span class="tag">Production Ready</span>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-code-branch"></i> Open Source & Commercial Use</h2>
+            <p class="lead-para">
+                FPR is available on GitHub for developers worldwide. For commercial implementations or technical consultation, please reach out.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <a href="https://github.com/repvi/fpr" target="_blank" class="btn common-btn">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+                <a href="../index.html#contact" class="btn ghost-btn">
+                    <i class="fas fa-handshake"></i> Commercial Inquiry
+                </a>
+                <a href="../index.html#contact" class="btn ghost-btn">
+                    <i class="fas fa-comments"></i> Get Started
+                </a>
+            </div>
+        </div>
+
+        <a href="../index.html#projects" class="back-button" style="margin-top: 2rem;">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

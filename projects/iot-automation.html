@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IoT Home Automation - Full-Stack Smart Home System by Alejandro Ramirez">
+    <title>IoT Home Automation | Alejandro Ramirez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../responsive.css">
+    <style>
+        .project-header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .section-block {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            margin-bottom: 2.5rem;
+        }
+        .section-block h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--primary-color);
+            border-radius: 4px;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient-1);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .metric-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        .metric-item .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .metric-item .label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-header">
+        <h1 class="my-heading">
+            <i class="fas fa-home"></i> IoT Home Automation
+        </h1>
+        <p class="lead-para" style="max-width: 800px; margin: 1.5rem auto 0;">
+            Full-stack home automation with ESP32 firmware, web/mobile UI, and cloud integration. 99.5% OTA success rate.
+        </p>
+    </div>
+
+    <div class="project-content">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+
+        <div class="section-block">
+            <h2><i class="fas fa-rocket"></i> Project Overview</h2>
+            <p class="lead-para">
+                <strong>🏠 Complete Smart Home Solution!</strong> End-to-end IoT ecosystem featuring custom ESP32 firmware, responsive web/mobile interfaces, and robust cloud infrastructure. Demonstrates full-stack embedded development capabilities from hardware to cloud.
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-lightbulb"></i> Why I Built This</h2>
+            <p class="lead-para">
+                I wanted to prove I could build a <strong>complete IoT system</strong>—not just firmware or backend, but the entire stack from bare-metal ESP32 code to polished user interface. This project demonstrates full-stack capabilities: embedded firmware, cloud infrastructure, web development, and DevOps.
+            </p>
+            <p class="lead-para">
+                The goal was creating a <strong>production-ready platform</strong> that could actually be deployed and maintained, with proper OTA updates, monitoring, and error handling—not just a prototype.
+            </p>
+            <p class="lead-para">
+                <strong>Building the full stack forced me to think differently.</strong> Most developers specialize—they're either embedded engineers or web developers or DevOps specialists. But real IoT systems don't care about those boundaries. When a user presses a button in the web interface, that event needs to travel through React state management, WebSocket connections, MQTT brokers, network protocols, and finally trigger an interrupt on an ESP32. Every layer has to work perfectly, or the whole system fails.
+            </p>
+            <p class="lead-para">
+                The hardest part? <strong>Making devices stay connected.</strong> WiFi drops. MQTT brokers restart. Backend services crash. Firmware has bugs. In development, you can restart everything and call it a day. In production, devices are embedded in walls, mounted in ceilings, scattered across buildings. I couldn't just "turn it off and on again." So I built resilience into every layer: automatic reconnection with exponential backoff, state synchronization that survives network partitions, health checks that detect problems before users notice them.
+            </p>
+            <p class="lead-para">
+                OTA updates were particularly brutal. Early attempts had a 60% success rate—devices would brick mid-update, rollbacks would fail, version mismatches would cause chaos. I spent weeks studying ESP32 partition tables, implementing checksums, building resume-on-failure logic, and adding failsafes. When I finally hit 99.5% success rate across dozens of devices and hundreds of updates, I knew I'd built something production-worthy. This isn't a demo. It's a <strong>real platform that could run a smart building</strong>—and does.
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-exclamation-triangle"></i> Technical Challenges Solved</h2>
+            <p class="lead-para">
+                The hardest part was achieving <strong>reliable device connectivity</strong> across the entire stack:
+            </p>
+            <ul class="feature-list">
+                <li><strong>Device-Cloud Communication:</strong> Established rock-solid MQTT connection with automatic reconnection, TLS encryption, and handling of network interruptions</li>
+                <li><strong>Real-Time Sync:</strong> Maintained sub-500ms latency from button press to UI update across WebSocket, MQTT broker, and ESP32 firmware layers</li>
+                <li><strong>OTA Reliability:</strong> Achieved 99.5% success rate through careful partition management, rollback mechanisms, and resume-on-failure logic</li>
+                <li><strong>Connection Resilience:</strong> Implemented graceful degradation so system remains partially functional when WiFi, MQTT, or backend services fail</li>
+                <li><strong>State Synchronization:</strong> Solved the challenge of keeping device state, backend database, and frontend UI in perfect sync even with connectivity issues</li>
+                <li><strong>Multi-Device Coordination:</strong> Built backend to handle 10+ concurrent devices with message routing, conflict resolution, and load balancing</li>
+                <li><strong>Production Deployment:</strong> Created complete CI/CD pipeline with automated testing, firmware signing, and monitoring infrastructure</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-chart-line"></i> System Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="value">99.5%</div>
+                    <div class="label">OTA Success</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">&lt;500ms</div>
+                    <div class="label">Response Time</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">24/7</div>
+                    <div class="label">Uptime</div>
+                </div>
+                <div class="metric-item">
+                    <div class="value">Full Stack</div>
+                    <div class="label">Architecture</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-star"></i> Core Features</h2>
+            <ul class="feature-list">
+                <li>
+                    <strong>Full-Stack Development:</strong> Complete system from <span class="highlight-metric">bare-metal firmware</span> to cloud backend and modern web/mobile interfaces
+                </li>
+                <li>
+                    <strong>Reliable OTA Updates:</strong> Bulletproof over-the-air firmware updates with <span class="highlight-metric">99.5%+ success rate</span> and automatic rollback on failure
+                </li>
+                <li>
+                    <strong>Real-Time Control:</strong> Sub-500ms device response with <span class="highlight-metric">WebSocket communication</span> for instant feedback and status updates
+                </li>
+                <li>
+                    <strong>Cloud Integration:</strong> Secure MQTT broker with <span class="highlight-metric">TLS encryption</span>, device authentication, and data persistence
+                </li>
+                <li>
+                    <strong>Modern UI/UX:</strong> Responsive React-based interface with <span class="highlight-metric">mobile app</span>, dark mode, and intuitive controls
+                </li>
+                <li>
+                    <strong>Smart Automation:</strong> Condition-based triggers, <span class="highlight-metric">scheduling</span>, and scene management for intelligent home control
+                </li>
+                <li>
+                    <strong>Production Ready:</strong> Comprehensive error handling, <span class="highlight-metric">logging</span>, and monitoring for reliable 24/7 operation
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-layer-group"></i> Technology Stack</h2>
+            <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <span class="tag">ESP32</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MQTT</span>
+                <span class="tag">WebSocket</span>
+                <span class="tag">OTA Updates</span>
+                <span class="tag">Cloud</span>
+                <span class="tag">Mobile App</span>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-microchip"></i> Technical Highlights</h2>
+            <p class="lead-para">
+                This project showcases the complete IoT development lifecycle:
+            </p>
+            <ul class="feature-list">
+                <li>
+                    <strong>Embedded Firmware:</strong> Custom ESP32 firmware with FreeRTOS task management, WiFi stack optimization, and peripheral drivers
+                </li>
+                <li>
+                    <strong>Backend Infrastructure:</strong> Node.js backend with MQTT broker, REST API, database management, and authentication
+                </li>
+                <li>
+                    <strong>Frontend Applications:</strong> Responsive web dashboard and React Native mobile app with real-time updates
+                </li>
+                <li>
+                    <strong>DevOps:</strong> CI/CD pipeline, automated testing, OTA deployment system, and monitoring infrastructure
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2><i class="fas fa-handshake"></i> Collaboration & Consultation</h2>
+            <p class="lead-para">
+                This full-stack IoT project demonstrates end-to-end development capabilities across embedded systems, cloud infrastructure, and modern web technologies. Available for similar projects and technical consultation.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <a href="../index.html#contact" class="btn common-btn">
+                    <i class="fas fa-envelope"></i> Discuss Your Project
+                </a>
+                <a href="../index.html#contact" class="btn ghost-btn">
+                    <i class="fas fa-lightbulb"></i> Technical Consultation
+                </a>
+            </div>
+        </div>
+
+        <a href="../index.html#projects" class="back-button" style="margin-top: 2rem;">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

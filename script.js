@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Observe cards and project items
-    const animatedElements = document.querySelectorAll('.my-card, .project-card, .details');
+    // Observe cards and project items (excluding project-card to prevent dizziness)
+    const animatedElements = document.querySelectorAll('.my-card, .details');
     
     animatedElements.forEach(element => {
         element.style.opacity = '0';
@@ -533,45 +533,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
     
-    // Add click handlers to project cards
-    projectCards.forEach(card => {
-        const projectNumber = card.getAttribute('data-project');
-        if (projectNumber) {
-            card.addEventListener('click', (e) => {
-                // Prevent opening if clicking on a link
-                if (e.target.tagName === 'A' || e.target.closest('a')) {
-                    return;
-                }
-                openProjectDetail(projectNumber);
-            });
-        }
-    });
     
-    // Add click handlers to images specifically
-    projectImages.forEach(image => {
-        const projectNumber = image.getAttribute('data-project');
-        if (projectNumber) {
-            image.addEventListener('click', (e) => {
-                e.stopPropagation();
-                openProjectDetail(projectNumber);
-            });
-        }
-    });
-    
-    // Add click handlers to project info sections
-    projectInfos.forEach(info => {
-        const projectNumber = info.getAttribute('data-project');
-        if (projectNumber) {
-            info.addEventListener('click', (e) => {
-                // Prevent opening if clicking on a link or button
-                if (e.target.tagName === 'A' || e.target.closest('a') || 
-                    e.target.tagName === 'BUTTON' || e.target.closest('button')) {
-                    return;
-                }
-                openProjectDetail(projectNumber);
-            });
-        }
-    });
+    // Click handlers removed - only "View Details" button opens overlay now
     
     // Close button handler
     if (overlayClose) {
@@ -592,6 +555,157 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape' && overlay.classList.contains('active')) {
             closeProjectDetail();
         }
+    });
+    
+    // ===================================
+    // View Details Button - Open Overlay with Slide Down Animation
+    // ===================================
+    const viewDetailsButtons = document.querySelectorAll('.btn-view-details');
+    
+    viewDetailsButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const projectNum = this.getAttribute('data-project');
+            openProjectDetail(projectNum);
+        });
+    });
+    
+    // Add slide-down animation to overlay
+    function openProjectDetail(projectNum) {
+        const overlay = document.getElementById('projectDetailOverlay');
+        const overlayContent = document.getElementById('overlayProjectContent');
+        
+        if (!overlay || !overlayContent) return;
+        
+        // Find the project card
+        const projectCard = document.querySelector(`.project-card[data-project="${projectNum}"]`);
+        if (!projectCard) return;
+        
+        // Get all the content from the hidden section
+        const projectInfo = projectCard.querySelector('.project-info');
+        const detailsHidden = projectCard.querySelector('.project-details-hidden');
+        
+        if (!projectInfo || !detailsHidden) return;
+        
+        // Clone the content
+        const title = projectInfo.querySelector('.project-title').cloneNode(true);
+        const metrics = projectInfo.querySelector('.metrics-summary').cloneNode(true);
+        const tags = projectInfo.querySelector('.project-tags').cloneNode(true);
+        const description = projectInfo.querySelector('.project-description').cloneNode(true);
+        const details = detailsHidden.cloneNode(true);
+        details.style.display = 'block';
+        
+        // Build overlay content
+        overlayContent.innerHTML = '';
+        overlayContent.appendChild(title);
+        overlayContent.appendChild(metrics);
+        overlayContent.appendChild(tags);
+        overlayContent.appendChild(description);
+        overlayContent.appendChild(details);
+        
+        // Show overlay with slide-down animation
+        overlay.classList.add('active');
+        overlay.style.opacity = '0';
+        overlay.style.transform = 'translateY(-20px)';
+        
+        requestAnimationFrame(() => {
+            overlay.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            overlay.style.opacity = '1';
+            overlay.style.transform = 'translateY(0)';
+        });
+    }
+    
+    // ===================================
+    // Modern Scroll Reveal Animations (already exists earlier in code)
+    // ===================================
+    // Removed duplicate observer code - already defined above
+    
+    // ===================================
+    // Smooth Scroll Progress Indicator
+    // ===================================
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        
+        // Update scroll progress (can add a progress bar element if needed)
+        document.documentElement.style.setProperty('--scroll-progress', scrolled + '%');
+    });
+    
+    // ===================================
+    // Dynamic Navbar Background on Scroll (enhanced)
+    // ===================================
+    // Note: header already defined earlier, reusing existing variable
+    let lastScrollPosition = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        const headerEl = document.querySelector('.header');
+        
+        if (currentScroll > 100) {
+            headerEl.style.background = 'rgba(10, 14, 39, 0.95)';
+            headerEl.style.boxShadow = '0 8px 30px rgba(0, 212, 255, 0.2)';
+        } else {
+            headerEl.style.background = 'rgba(10, 14, 39, 0.8)';
+            headerEl.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+        }
+        
+        lastScrollPosition = currentScroll;
+    });
+    
+    // ===================================
+    // Typing Animation for Hero Section - DISABLED (more professional)
+    // ===================================
+    // Removed typing animation to maintain professional appearance
+    // Text now displays immediately without animation
+    
+    // ===================================
+    // Particle Effect (Optional - Subtle)
+    // ===================================
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        particle.style.opacity = Math.random() * 0.5;
+        document.body.appendChild(particle);
+        
+        setTimeout(() => {
+            particle.remove();
+        }, 10000);
+    }
+    
+    // Create particles occasionally
+    setInterval(createParticle, 3000);
+    
+    // ===================================
+    // Interactive Card Tilt Effect - DISABLED (unprofessional/dizzy effect)
+    // ===================================
+    // Removed to maintain professional appearance and prevent disorientation
+    
+    // ===================================
+    // Enhanced Button Ripple Effect
+    // ===================================
+    const rippleButtons = document.querySelectorAll('.btn, .btn-small');
+    rippleButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple-effect');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
     });
     
     // ===================================
