@@ -86,6 +86,19 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    cursor: default;
+}
+
+/* Cursor Control - Only interactive elements get pointer cursor */
+*, *::before, *::after {
+    cursor: inherit;
+}
+
+a, button, .btn, .menu-list-items a, .hamburger, 
+input[type="submit"], input[type="button"], 
+select, [role="button"], 
+.social-links a, .footer-links {
+    cursor: pointer !important;
 }
 
 body::before {
@@ -312,7 +325,6 @@ body::before {
 
 .hamburger {
     display: none;
-    cursor: pointer;
     font-size: 1.5rem;
     color: var(--text-primary);
 }
@@ -330,7 +342,6 @@ body::before {
     font-weight: 600;
     border: 2px solid var(--primary-color);
     border-radius: 5px;
-    cursor: pointer;
     transition: var(--transition-smooth);
     text-decoration: none;
     display: inline-block;
@@ -1085,7 +1096,6 @@ body::before {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 .employer-btn:hover {
@@ -1478,7 +1488,6 @@ textarea.form-controls {
     height: 50px;
     border-radius: 50%;
     font-size: 1.5rem;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1507,7 +1516,6 @@ textarea.form-controls {
 
 /* Enhanced hover effects for project cards */
 .project-card {
-    cursor: pointer;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
 }
@@ -1619,8 +1627,7 @@ textarea.form-controls {
 }
 
 /* Glowing cursor effect on interactive elements */
-.btn, .links, .project-card, .my-card {
-    cursor: pointer;
+.btn, .links {
     position: relative;
 }
 
