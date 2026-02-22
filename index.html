@@ -250,6 +250,7 @@
                             <li>C / C++</li>
                             <li>Python (MicroPython)</li>
                             <li>Assembly</li>
+                            <li>Verilog</li>
                             <li>ESP-IDF Framework</li>
                             <li>Arduino IDE</li>
                             <li>PlatformIO</li>
@@ -263,7 +264,7 @@
                         </div>
                         <h3 class="greet-heading blue-text">Communication</h3>
                         <ul class="skill-list">
-                            <li>WiF</li>
+                            <li>WiFi</li>
                             <li>MQTT / HTTP / WebSockets</li>
                             <li>I2C / SPI / UART</li>
                         </ul>
@@ -291,8 +292,11 @@
                         </div>
                         <h3 class="greet-heading blue-text">Tools & Hardware</h3>
                         <ul class="skill-list">
-                            <!-- <li>Oscilloscope / Logic Analyzer</li> -->
+                            <li>Oscilloscope / Logic Analyzer</li>
                             <li>Multimeter / Power Supply</li>
+                            <li>Circuit Simulators (SPICE / LTspice)</li>
+                            <li>FPGA Simulation &amp; Synthesis (Vivado / ModelSim / GHDL)</li>
+                            <li>QEMU (system &amp; user-mode emulation)</li>
                             <li>Git / Version Control</li>
                             <li>PCB Design (KiCad)</li>
                         </ul>
@@ -381,6 +385,65 @@
                 <strong>Production-ready firmware solutions</strong> trusted by developers worldwide. These projects demonstrate cutting-edge ESP32 development with proven reliability and real-world adoption.
             </p>
         </div> 
+
+        <!-- Project 5: 8-Bit CPU -->
+        <div class="project-card" data-project="5">
+            <div class="project-image" data-project="5">
+                <img src="./assets/images/projects/8bit_cpu_sim.jpg" alt="8-Bit CPU in Verilog">
+            </div>
+            <div class="project-info" data-project="5">
+                <h3 class="project-title">8-Bit CPU &mdash; Custom Verilog Processor</h3>
+
+                <!-- Performance Metrics Summary -->
+                <div class="metrics-summary">
+                    <div class="metric-box">
+                        <i class="fas fa-microchip metric-icon"></i>
+                        <div class="metric-value">8-bit</div>
+                        <div class="metric-label">Data Width</div>
+                    </div>
+                    <div class="metric-box">
+                        <i class="fas fa-list-ol metric-icon"></i>
+                        <div class="metric-value">14+</div>
+                        <div class="metric-label">Instructions</div>
+                    </div>
+                    <div class="metric-box">
+                        <i class="fas fa-database metric-icon"></i>
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Memory Regions</div>
+                    </div>
+                    <div class="metric-box">
+                        <i class="fas fa-check-circle metric-icon"></i>
+                        <div class="metric-value">FPGA</div>
+                        <div class="metric-label">HW Verified</div>
+                    </div>
+                </div>
+
+                <div class="project-tags">
+                    <span class="tag">Verilog</span>
+                    <span class="tag">FPGA</span>
+                    <span class="tag">Vivado</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">RTL Design</span>
+                    <span class="tag">Custom ISA</span>
+                    <span class="tag">Assembly</span>
+                </div>
+                <p class="project-description">
+                    Fully custom 8-bit CPU in Verilog with a <strong>Python assembler</strong>, ROM/RAM/IO memory map, 4 general-purpose registers, and a complete ISA. Verified in Vivado simulation and on real FPGA hardware.
+                </p>
+                <div class="project-links">
+                    <a href="./projects/8bit-cpu.html" class="btn-small btn-view-details">
+                        <i class="fas fa-eye"></i> View Details
+                    </a>
+                    <a href="https://github.com/repvi/8-Bit-CPU" target="_blank" class="btn-small">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <a href="#contact" class="btn-small request-details" data-subject="8-Bit CPU Project - Technical Discussion Request">
+                        <i class="fas fa-comments"></i> Discuss Design
+                    </a>
+                </div>
+            </div>
+        </div>
+        
         <div class="projects-content"> 
             <!-- Project 0: RTIX RTOS -->
             <div class="project-card reverse" data-project="0">
