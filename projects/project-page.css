@@ -1,0 +1,453 @@
+/* ===== Project Detail Page Styles ===== */
+/* Uses design tokens from ../style.css */
+
+.project-header {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.project-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--bg-primary));
+    pointer-events: none;
+}
+
+.project-header .my-heading {
+    font-size: 2.8rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.project-header .my-heading i {
+    color: var(--gold);
+}
+
+.project-header .lead-para {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+}
+
+.project-header .project-badge,
+.project-header .proprietary-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(201, 169, 110, 0.15);
+    border: 1px solid rgba(201, 169, 110, 0.35);
+    border-radius: 20px;
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    letter-spacing: 0.03em;
+}
+
+.project-header .highlight-text {
+    color: var(--gold);
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.project-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Back button */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    background: transparent;
+    color: var(--gold);
+    text-decoration: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+    letter-spacing: 0.02em;
+}
+
+.back-button:hover {
+    background: rgba(201, 169, 110, 0.08);
+    border-color: var(--gold);
+    transform: translateY(-1px);
+}
+
+/* Section blocks */
+.section-block {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+    transition: border-color 0.3s ease;
+}
+
+.section-block:hover {
+    border-color: var(--border-hover);
+}
+
+.section-block h2 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.section-block h2 i {
+    color: var(--gold);
+    margin-right: 0.5rem;
+}
+
+.section-block .lead-para {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.section-block .lead-para:last-child {
+    margin-bottom: 0;
+}
+
+.section-block .lead-para strong {
+    color: var(--text-primary);
+}
+
+/* Feature list */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.6rem;
+    background: rgba(201, 169, 110, 0.04);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.feature-list li strong {
+    color: var(--text-primary);
+}
+
+.feature-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Metrics grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(201, 169, 110, 0.06);
+    border-radius: 12px;
+    border: 1px solid rgba(201, 169, 110, 0.15);
+    transition: border-color 0.3s ease;
+}
+
+.metric-item:hover {
+    border-color: rgba(201, 169, 110, 0.35);
+}
+
+.metric-item .value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+}
+
+.metric-item .label {
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+/* Project tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.project-tags .tag {
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    background: rgba(201, 169, 110, 0.08);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: 6px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Highlight metric inline */
+.highlight-metric {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+}
+
+.btn-primary,
+.btn.common-btn {
+    background: var(--gold);
+    color: var(--bg-primary);
+    border: 1px solid var(--gold);
+}
+
+.btn-primary:hover,
+.btn.common-btn:hover {
+    background: var(--gold-dim);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(201, 169, 110, 0.25);
+}
+
+.btn-outline,
+.btn.ghost-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--border);
+}
+
+.btn-outline:hover,
+.btn.ghost-btn:hover {
+    border-color: var(--gold);
+    background: rgba(201, 169, 110, 0.08);
+    transform: translateY(-1px);
+}
+
+/* ===== ISA Table (8-bit CPU page) ===== */
+.isa-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.isa-table thead th {
+    background: rgba(201, 169, 110, 0.1);
+    color: var(--gold);
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+}
+
+.isa-table td {
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.isa-table tr:last-child td {
+    border-bottom: none;
+}
+
+.isa-table tr:hover td {
+    background: rgba(201, 169, 110, 0.04);
+}
+
+.opcode-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(201, 169, 110, 0.12);
+    color: var(--gold);
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+}
+
+/* ===== Memory Map (8-bit CPU page) ===== */
+.mem-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.mem-region {
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s ease;
+}
+
+.mem-region:hover {
+    border-color: var(--border-hover);
+}
+
+.mem-region.rom  { border-color: rgba(201, 169, 110, 0.35); background: rgba(201, 169, 110, 0.05); }
+.mem-region.ram  { border-color: rgba(167, 139, 250, 0.35); background: rgba(167, 139, 250, 0.05); }
+.mem-region.io   { border-color: rgba(248, 113, 113, 0.35); background: rgba(248, 113, 113, 0.05); }
+
+.mem-region h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+.mem-region.rom h3 { color: var(--gold); }
+.mem-region.ram h3 { color: #a78bfa; }
+.mem-region.io  h3 { color: #f87171; }
+
+.mem-region p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ===== Pipeline (8-bit CPU page) ===== */
+.pipeline-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.pipeline-stage {
+    flex: 1;
+    min-width: 90px;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    background: rgba(201, 169, 110, 0.06);
+    border: 1px solid rgba(201, 169, 110, 0.18);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.pipeline-stage:first-child { border-radius: 8px 0 0 8px; }
+.pipeline-stage:last-child  { border-radius: 0 8px 8px 0; }
+
+.pipeline-stage small {
+    color: var(--text-muted) !important;
+    font-weight: 400;
+}
+
+.pipeline-arrow {
+    color: var(--gold);
+    font-size: 1.2rem;
+    padding: 0 0.1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .project-header {
+        padding: 6rem 1.5rem 3rem;
+    }
+    .project-header .my-heading {
+        font-size: 2rem;
+    }
+    .project-content {
+        padding: 2rem 1.25rem;
+    }
+    .section-block {
+        padding: 1.75rem 1.25rem;
+    }
+    .section-block h2 {
+        font-size: 1.35rem;
+    }
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .metric-item .value {
+        font-size: 1.5rem;
+    }
+    .mem-map {
+        grid-template-columns: 1fr;
+    }
+    .pipeline-row {
+        flex-direction: column;
+    }
+    .pipeline-stage {
+        border-radius: 8px !important;
+        margin-bottom: 0.5rem;
+    }
+    .isa-table {
+        font-size: 0.85rem;
+    }
+    .isa-table thead th,
+    .isa-table td {
+        padding: 0.6rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-header .my-heading {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .section-block {
+        padding: 1.25rem 1rem;
+    }
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Body styling for project pages */
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+}

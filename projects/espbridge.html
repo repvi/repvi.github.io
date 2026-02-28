@@ -8,93 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../responsive.css">
-    <style>
-        .project-header {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        .project-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        .section-block {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            margin-bottom: 2.5rem;
-        }
-        .section-block h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        .feature-list li {
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            background: rgba(0, 212, 255, 0.05);
-            border-left: 3px solid var(--primary-color);
-            border-radius: 4px;
-        }
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--gradient-1);
-            color: var(--dark-bg);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
-        }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .metric-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-        }
-        .metric-item .value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        .metric-item .label {
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-    </style>
+    <link rel="stylesheet" href="project-page.css">
 </head>
 <body>
     <div class="project-header">
         <h1 class="my-heading">
             <i class="fas fa-exchange-alt"></i> MicroUSC/ESPBridge
         </h1>
-        <p class="lead-para" style="max-width: 800px; margin: 1.5rem auto 0;">
+        <p class="lead-para">
             Lightweight UART protocol (500+ cmds/sec). Cross-platform communication library with 100+ downloads.
         </p>
-        <p style="color: var(--primary-color); margin-top: 1rem; font-weight: 600;">
-            100+ clones - Proven in production environments
+        <p class="highlight-text">
+            100+ clones &mdash; Proven in production environments
         </p>
     </div>
 
@@ -106,7 +31,7 @@
         <div class="section-block">
             <h2><i class="fas fa-rocket"></i> Project Overview</h2>
             <p class="lead-para">
-                <strong>⚡ Lightning-fast inter-device communication!</strong> High-performance UART protocol enabling seamless communication between microcontrollers and computers. Trusted by <strong>100+ developers worldwide</strong> for mission-critical applications.
+                <strong>Lightning-fast inter-device communication!</strong> High-performance UART protocol enabling seamless communication between microcontrollers and computers. Trusted by <strong>100+ developers worldwide</strong> for mission-critical applications.
             </p>
         </div>
 
@@ -195,7 +120,7 @@
 
         <div class="section-block">
             <h2><i class="fas fa-tools"></i> Technologies Used</h2>
-            <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <div class="project-tags">
                 <span class="tag">UART Protocol</span>
                 <span class="tag">ESP32</span>
                 <span class="tag">STM32</span>
@@ -207,18 +132,18 @@
         </div>
 
         <div class="section-block">
-            <h2><i class="fas fa-code-branch"></i> Open Source & Documentation</h2>
+            <h2><i class="fas fa-code-branch"></i> Open Source &amp; Documentation</h2>
             <p class="lead-para">
                 MicroUSC/ESPBridge is freely available with comprehensive documentation and examples. Perfect for robotics, IoT, industrial automation, and research projects.
             </p>
             <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                <a href="https://github.com/repvi/MicroUSC" target="_blank" class="btn common-btn">
+                <a href="https://github.com/repvi/MicroUSC" target="_blank" class="btn btn-primary">
                     <i class="fab fa-github"></i> View on GitHub
                 </a>
-                <a href="../index.html#contact" class="btn ghost-btn">
+                <a href="../index.html#contact" class="btn btn-outline">
                     <i class="fas fa-book"></i> Documentation
                 </a>
-                <a href="../index.html#contact" class="btn ghost-btn">
+                <a href="../index.html#contact" class="btn btn-outline">
                     <i class="fas fa-comments"></i> Get Support
                 </a>
             </div>

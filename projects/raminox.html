@@ -8,92 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../responsive.css">
-    <style>
-        .project-header {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        .project-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        .section-block {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            margin-bottom: 2.5rem;
-        }
-        .section-block h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        .feature-list li {
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            background: rgba(0, 212, 255, 0.05);
-            border-left: 3px solid var(--primary-color);
-            border-radius: 4px;
-        }
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--gradient-1);
-            color: var(--dark-bg);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
-        }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .metric-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-        }
-        .metric-item .value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        .metric-item .label {
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-        .proprietary-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 215, 0, 0.2);
-            border: 1px solid rgba(255, 215, 0, 0.5);
-            border-radius: 20px;
-            color: gold;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="project-page.css">
 </head>
 <body>
     <div class="project-header">
@@ -103,7 +18,7 @@
         <span class="proprietary-badge">
             <i class="fas fa-lock"></i> Proprietary Project
         </span>
-        <p class="lead-para" style="max-width: 800px; margin: 1.5rem auto 0;">
+        <p class="lead-para">
             ESP32-based handheld computing platform with custom graphics engine. Professional hardware/software integration.
         </p>
     </div>
@@ -116,7 +31,7 @@
         <div class="section-block">
             <h2><i class="fas fa-rocket"></i> Project Overview</h2>
             <p class="lead-para">
-                <strong>🔒 Proprietary Development Project.</strong> A powerful ESP32-based handheld device featuring custom-built graphics engine and application framework. Currently in active development with advanced power management and UI systems.
+                <strong>Proprietary Development Project.</strong> A powerful ESP32-based handheld device featuring custom-built graphics engine and application framework. Currently in active development with advanced power management and UI systems.
             </p>
         </div>
 
@@ -147,7 +62,7 @@
             <ul class="feature-list">
                 <li><strong>System Integration:</strong> Coordinated custom graphics engine, FPR mesh networking, audio system, and UI framework—each with competing resource demands</li>
                 <li><strong>Power Constraints:</strong> Achieved ~12mA idle consumption through aggressive power management while maintaining instant wake-up and responsive UI</li>
-                <li><strong>Graphics Performance:</strong> Hit 60 FPS on a 128×64 OLED through double-buffering, custom blitting algorithms, and pixel-perfect memory management</li>
+                <li><strong>Graphics Performance:</strong> Hit 60 FPS on a 128&times;64 OLED through double-buffering, custom blitting algorithms, and pixel-perfect memory management</li>
                 <li><strong>Multitasking:</strong> Balanced FreeRTOS task priorities to handle real-time networking, smooth graphics, and user input without lag</li>
                 <li><strong>Graceful Degradation:</strong> Implemented failure handling across all subsystems—mesh disconnects, low battery, memory pressure—ensuring device remains usable</li>
                 <li><strong>Feature Density:</strong> Packed networking, graphics, audio, storage, and debugging into limited flash/RAM through careful architecture and code optimization</li>
@@ -166,8 +81,8 @@
                     <div class="label">Framework</div>
                 </div>
                 <div class="metric-item">
-                    <div class="value">Power Mgmt</div>
-                    <div class="label">Optimized</div>
+                    <div class="value">~12mA</div>
+                    <div class="label">Idle Power</div>
                 </div>
                 <div class="metric-item">
                     <div class="value">ESP32</div>
@@ -202,7 +117,7 @@
 
         <div class="section-block">
             <h2><i class="fas fa-tools"></i> Technologies Used</h2>
-            <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <div class="project-tags">
                 <span class="tag">ESP32</span>
                 <span class="tag">Custom Graphics</span>
                 <span class="tag">60 FPS</span>
@@ -218,14 +133,14 @@
             <p class="lead-para">
                 Raminox is a proprietary development project demonstrating advanced embedded systems capabilities. The project showcases expertise in low-level graphics programming, hardware-software integration, and professional product development practices.
             </p>
-            <p class="lead-para" style="margin-top: 1rem;">
+            <p class="lead-para">
                 <strong>Interested in collaboration or licensing?</strong> Contact me to discuss potential opportunities.
             </p>
             <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                <a href="../index.html#contact" class="btn common-btn">
+                <a href="../index.html#contact" class="btn btn-primary">
                     <i class="fas fa-envelope"></i> Contact for Details
                 </a>
-                <a href="../index.html#contact" class="btn ghost-btn">
+                <a href="../index.html#contact" class="btn btn-outline">
                     <i class="fas fa-handshake"></i> Licensing Inquiry
                 </a>
             </div>
